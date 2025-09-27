@@ -21,14 +21,14 @@ This project is designed to provide a scalable architecture with clean separatio
 
 * React
 * Vite
-* JavaScript / TypeScript (if enabled)
+* JavaScript
 
 **Backend**
 
 * Node.js
 * Express.js
 * Prisma ORM
-* PostgreSQL / MySQL / SQLite (depending on `.env` configuration)
+* PostgreSQL 
 
 ---
 
@@ -56,7 +56,7 @@ EDS/
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/your-username/EDS.git
+git clone  https://github.com/abhinav-salokhe/employee-data-managment.git
 cd EDS
 ```
 
