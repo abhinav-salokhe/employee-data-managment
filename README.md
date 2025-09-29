@@ -111,18 +111,6 @@ Build the frontend: npm run build
 Deploy the dist folder to your hosting service (Vercel, Netlify, etc.)
 
 
-🤝 Contributing
-Contributions are welcome! Please follow these steps:
-
-Fork the repository
-Create a new branch (git checkout -b feature/your-feature)
-Commit your changes (git commit -m 'Add some feature')
-Push to the branch (git push origin feature/your-feature)
-Open a Pull Request
-
-
-📝 License
-This project is open source and available under the MIT License.
 
 👨‍💻 Author
 Abhinav Ganesh Salokhe
