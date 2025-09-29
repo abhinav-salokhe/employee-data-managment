@@ -3,6 +3,7 @@ import React, { useEffect} from 'react';
 import EmployeeTable from './components/EmployeeTable';
 import EmployeeForm from './components/EmployeeForm';
 import SearchBar from './components/SearchBar';
+import Navbar from './components/Navbar';
 
 import API from './api/api';
 
@@ -20,11 +21,16 @@ function App() {
 
 
   const fetchEmployees = async () => {
-    const res = await API.get('/api/employees');
-    console.log("res = > ",res)
-    const employeeData = res.data || [];
-    console.log("Emp Data => ",employeeData)
-    setEmployees(Array.isArray(employeeData) ? employeeData : []);
+    try {
+      const res = await API.get('/api/employees');
+      const employeeData = res.data || [];
+      setEmployees(Array.isArray(employeeData) ? employeeData : []);
+    } catch (err) {
+      if (err?.response?.status === 401) {
+        localStorage.removeItem('token');
+        window.location.href = '/signin';
+      }
+    }
   };
 
   useEffect(() => { fetchEmployees(); }, []);
@@ -39,8 +45,10 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
-      <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-blue-50">
+      <Navbar />
+      <div className="max-w-5xl mx-auto px-4 py-8">
+        <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
           <h1 className="text-3xl font-bold text-indigo-800">Employee Management</h1>
           <button
@@ -68,6 +76,7 @@ function App() {
 
 
         
+        </div>
       </div>
     </div>
   );

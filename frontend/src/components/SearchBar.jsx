@@ -2,13 +2,15 @@ import React from 'react'
 
 const SearchBar = ({ value, onChange }) => {
   return (
-    <input
-      type="text"
-      className="mb-4 p-2 w-full border rounded"
-      placeholder="Search employee by name..."
-      value={value}
-      onChange={e => onChange(e.target.value)}
-    />
+    <div className="mb-4">
+      <input
+        type="text"
+        className="p-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-200"
+        placeholder="Search employee by name..."
+        value={value}
+        onChange={e => onChange(e.target.value)}
+      />
+    </div>
   );
 }
 
